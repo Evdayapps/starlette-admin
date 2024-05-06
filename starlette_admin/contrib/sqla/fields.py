@@ -94,13 +94,7 @@ def _serialize_sqlalchemy_file_library(
                 {
                     "content_type": item["content_type"],
                     "filename": item["filename"],
-                    "url": str(
-                        request.url_for(
-                            request.app.state.ROUTE_NAME + ":api:file",
-                            storage=storage,
-                            file_id=file_id,
-                        )
-                    ),
+                    "url": item["url"],
                 }
             )
         return data if is_multiple else data[0]
