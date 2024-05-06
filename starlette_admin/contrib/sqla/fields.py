@@ -89,12 +89,12 @@ def _serialize_sqlalchemy_file_library(
             ):
                 """Use thumbnail on list page if available"""
                 path = item["thumbnail"]["path"]
-            storage, file_id = path.split("/")
+            #storage, file_id = path.split("/")
             data.append(
                 {
                     "content_type": item["content_type"],
                     "filename": item["filename"],
-                    "url": item["url"],
+                    "url": item["url"].split("?")[0],
                 }
             )
         return data if is_multiple else data[0]
